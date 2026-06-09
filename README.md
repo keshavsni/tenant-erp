@@ -122,12 +122,6 @@ You may use Mailtrap for testing emails.
 
 ---
 
-## Install Sanctum
-
-```bash
-php artisan install:api
-```
-
 Run migrations:
 
 ```bash
