@@ -38,7 +38,7 @@ A RESTful Inventory Management System built with Laravel 11, supporting multi-te
 ### Clone Repository
 
 ```bash
-git clone <repository-url>
+git clone https://github.com/keshavsni/tenant-erp.git
 cd tanent-erp
 ```
 
@@ -423,4 +423,4 @@ Use these credentials to log in and test the APIs.
 
 Kokil Soni
 
-Laravel Backend Developer
+Laravel Fullstack Developer
