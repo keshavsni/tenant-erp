@@ -130,19 +130,7 @@ php artisan migrate
 
 ---
 
-## Seed Database
-
-Run all seeders:
-
-```bash
-
-First Create an company account then run seeder to storing products
-
-php artisan db:seed
-
-
-
-```
+````
 
 ---
 
@@ -152,7 +140,7 @@ Required for order confirmation emails.
 
 ```bash
 php artisan queue:work
-```
+````
 
 ---
 
@@ -162,11 +150,21 @@ php artisan queue:work
 php artisan serve
 ```
 
+## Seed Database
+
+Run all seeders:
+
+````bash
+
+First Create an company account then run seeder to storing products
+
+php artisan db:seed
+
 Application URL:
 
 ```text
 http://127.0.0.1:8000
-```
+````
 
 ---
 
