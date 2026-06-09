@@ -322,19 +322,10 @@ Example:
 GET /api/orders
 ```
 
-Optional Filters:
-
-```text
-?status=completed
-?warehouse_id=1
 ?order_id=10
-```
 
-### Get Order Details
+````
 
-```http
-GET /api/orders/{id}
-```
 
 ---
 
@@ -372,15 +363,9 @@ app/
 ├── Jobs
 ├── Models
 └── Traits
-```
+````
 
----
-
-# Running Tests
-
-```bash
-php artisan test
-```
+````
 
 ---
 
@@ -390,7 +375,7 @@ Import the provided Postman collection:
 
 ```text
 postman/Inventory-Management.postman_collection.json
-```
+````
 
 ---
 
