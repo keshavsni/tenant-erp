@@ -96,7 +96,6 @@ Generate queue tables:
 ```bash
 php artisan queue:table
 
-php artisan migrate --path=database/migrations/2026_06_09_110217_create_companies_table.php
 
 php artisan migrate
 ```
