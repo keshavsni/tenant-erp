@@ -25,10 +25,14 @@ return new class extends Migration
             $table->text('description')->nullable();
             $table->boolean('status')->default(true);
             $table->softDeletes();
-            
+
             $table->timestamps();
 
             $table->unique(['company_id', 'sku']);
+
+            $table->index('name');
+
+            $table->index('sku');
         });
     }
 
