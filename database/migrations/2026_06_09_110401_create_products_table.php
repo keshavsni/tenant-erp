@@ -18,15 +18,17 @@ return new class extends Migration
                 ->cascadeOnDelete();
 
             $table->string('name');
-            $table->string('sku')->unique();
+            $table->string('sku');
             $table->string('barcode')->nullable();
             $table->decimal('price', 10, 2);
             $table->integer('stock')->default(0);
             $table->text('description')->nullable();
             $table->boolean('status')->default(true);
-
             $table->softDeletes();
+            
             $table->timestamps();
+
+            $table->unique(['company_id', 'sku']);
         });
     }
 

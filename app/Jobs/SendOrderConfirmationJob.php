@@ -30,6 +30,7 @@ class SendOrderConfirmationJob implements ShouldQueue
             'company',
         ])->find($this->order->id);
 
+
         Mail::to(
             $order->company->email
         )->send(

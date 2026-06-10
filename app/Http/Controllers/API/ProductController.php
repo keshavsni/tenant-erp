@@ -78,7 +78,8 @@ class ProductController extends Controller
         Product $product
     ) {
 
-
+        $this->authorizeProduct($product);
+        
         $product->update(
             $request->validated()
         );

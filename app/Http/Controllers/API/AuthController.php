@@ -23,7 +23,8 @@ class AuthController extends Controller
         try {
 
             $company = Company::create([
-                'name' => $request->company_name
+                'name' => $request->company_name,
+                'email' => $request->email
             ]);
 
             $user = User::create([

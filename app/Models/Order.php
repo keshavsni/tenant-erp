@@ -17,4 +17,9 @@ class Order extends Model
     {
         return $this->belongsTo(Company::class);
     }
+
+    public function warehouse()
+    {
+        return $this->belongsTo(Warehouse::class);
+    }
 }

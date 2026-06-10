@@ -8,6 +8,7 @@ use App\Http\Resources\OrderResource;
 use App\Jobs\SendOrderConfirmationJob;
 use App\Models\Order;
 use App\Models\OrderItem;
+use App\Models\Product;
 use App\Models\WarehouseProduct;
 use App\Traits\ApiResponse;
 use Illuminate\Http\Request;
@@ -52,8 +53,10 @@ class OrderController extends Controller
         OrderRequest $request
     ) {
 
+        $companyId = auth()->user()->company_id;
+
         $order = DB::transaction(
-            function () use ($request) {
+            function () use ($request, $companyId) {
 
                 $order = Order::create([
                     'company_id' =>
@@ -67,10 +70,22 @@ class OrderController extends Controller
 
                 $total = 0;
 
+
                 foreach (
                     $request->products
                     as $item
                 ) {
+
+                    $product = Product::where('id', $item['product_id'])
+                        ->where('company_id', $companyId)->first();
+
+                    if (!$product) {
+                        throw ValidationException::withMessages([
+                            'product_id' => [
+                                "Product {$item['product_id']} does not belong to your company."
+                            ]
+                        ]);
+                    }
 
                     $warehouseProduct =
                         WarehouseProduct::where(

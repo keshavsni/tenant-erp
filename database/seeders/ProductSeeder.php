@@ -2,7 +2,9 @@
 
 namespace Database\Seeders;
 
+use App\Models\Company;
 use App\Models\Product;
+use Exception;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
@@ -13,9 +15,15 @@ class ProductSeeder extends Seeder
      */
     public function run(): void
     {
+        $company = Company::first();
+
+        if (!$company) {
+            throw new Exception('No company found');
+        }
+
         Product::insert([
             [
-                'company_id' => 1,
+                'company_id' => $company->id,
                 'name' => 'Dell Laptop',
                 'sku' => 'DELL-001',
                 'barcode' => '100000001',
@@ -27,7 +35,7 @@ class ProductSeeder extends Seeder
                 'updated_at' => now(),
             ],
             [
-                'company_id' => 1,
+                'company_id' => $company->id,
                 'name' => 'HP Laptop',
                 'sku' => 'HP-001',
                 'barcode' => '100000002',
@@ -39,7 +47,7 @@ class ProductSeeder extends Seeder
                 'updated_at' => now(),
             ],
             [
-                'company_id' => 1,
+                'company_id' => $company->id,
                 'name' => 'Wireless Mouse',
                 'sku' => 'MOUSE-001',
                 'barcode' => '100000003',
@@ -51,7 +59,7 @@ class ProductSeeder extends Seeder
                 'updated_at' => now(),
             ],
             [
-                'company_id' => 1,
+                'company_id' => $company->id,
                 'name' => 'Mechanical Keyboard',
                 'sku' => 'KEY-001',
                 'barcode' => '100000004',
@@ -63,7 +71,7 @@ class ProductSeeder extends Seeder
                 'updated_at' => now(),
             ],
             [
-                'company_id' => 1,
+                'company_id' => $company->id,
                 'name' => '27 Inch Monitor',
                 'sku' => 'MON-001',
                 'barcode' => '100000005',
